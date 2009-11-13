@@ -1,0 +1,12 @@
+websocket-server-node.js is a minimal Web Socket server written in JavaScript
+using node.js.
+
+To get it up and running:
+
+1. Get node.js from nodejs.org
+2. node server.js
+3. Open echo-client.html in a browser that supports the Web Socket protocol
+
+
+Note: TSL is not supported.
+
