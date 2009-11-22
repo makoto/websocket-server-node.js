@@ -29,6 +29,11 @@ var tcp = require('tcp');
 var sys = require('sys');
 
 var server = tcp.createServer(function(connection) {
+    if (connection.remoteAddress !== '127.0.0.1') {
+        sys.puts('Connection from ' + connection.remoteAddress +
+            ' not accepted. Only local connections are currently supported.');
+        connection.close();
+    }
 
     var _doneHandshake = false;
     var _resource = null;
