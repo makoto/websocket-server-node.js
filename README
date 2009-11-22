@@ -1,5 +1,5 @@
 websocket-server-node.js is a minimal Web Socket server written in JavaScript
-using node.js.
+using node.js. It's intended to be used locally.
 
 To get it up and running:
 
