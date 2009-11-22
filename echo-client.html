@@ -2,7 +2,6 @@
 <html>
     <head>
         <script>
-
             // webSocket is referenced from the HTML-elements, so it has to stay
             // in the global scope.
             var webSocket;
@@ -22,8 +21,7 @@
                 webSocket.onclose = function() {
                     out.innerHTML += 'Connection closed.<br>';
                 };
-            }
-
+            };
         </script>
     </head>
     <body onload="ready();">
