@@ -31,7 +31,7 @@ exports.handleData = function(connection, data) {
         return rows;
     }
 
-    sys.exec('sqlite3 -line ' + data)
+    sys.exec('sqlite3 -line ./resources/' + data)
     .addCallback(function(stdout, stderr) {
         connection.send('\u0000' + JSON.stringify(parseRows(stdout)) +
             '\uffff');
