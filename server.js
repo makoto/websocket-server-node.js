@@ -33,6 +33,8 @@ var server = tcp.createServer(function(connection) {
         connection.close();
     }
 
+    connection.setTimeout(0);
+
     var _doneHandshake = false;
     var _resource = null;
 
