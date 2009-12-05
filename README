@@ -10,10 +10,6 @@ A Web Socket server for local use written in JavaScript, using node.js.
 
 TSL is not supported.
 
-The reason why the server blocks remote addresses other than localhost, is that
-I only use it locally myself, and also because I want to keep the code as simple
-as possible.
-
 The resources included by default allows the client to do anything that a user
 can do from the command line. You would either have to remove resources or
 write authentication/authorization code, and remove the remoteAddress-check
