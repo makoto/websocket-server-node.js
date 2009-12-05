@@ -1,4 +1,4 @@
-websocket-server-node.js
+Web Socket server-node.js
 
 A Web Socket server for local use written in JavaScript, using node.js.
 
