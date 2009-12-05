@@ -40,6 +40,7 @@ var server = tcp.createServer(function(connection) {
 
     connection.setEncoding('utf8');
 
+
     connection.addListener('receive', function(data) {
         function notAccepted(why) {
             sys.puts('Handshake with ' + connection.remoteAddress +
@@ -73,15 +74,30 @@ var server = tcp.createServer(function(connection) {
             var lines = data.split('\r\n');
 
             // Line 0
-
             var request = lines[0].split(' ');
-
+            
+            // Return flash policy file for web-socket-js
+            // http://github.com/gimite/web-socket-js
+            if(request[0].match(/policy-file-request/)){
+              sys.puts('requesting flash policy file');
+              
+              policy_xml = 
+              '<?xml version="1.0"?>' +
+              '<!DOCTYPE cross-domain-policy SYSTEM ' +
+              'ww.macromedia.com/xml/dtds/cross-domain-policy.dtd">' +
+              '<cross-domain-policy>' +
+              "<allow-access-from domain='*' to-ports='*'/>" +
+              '</cross-domain-policy>'
+              connection.send(policy_xml);
+              connection.close();
+            }
+            
             if (((request[0] === 'GET') && (request[2] === 'HTTP/1.1'))
                 !== true) {
                 notAccepted('Request not valid.');
                 return;
-            }
-
+            }else 
+            sys.puts(request.join(','))
             var resource = request[1];
 
             if (resource[0] !== '/') {
@@ -166,7 +182,9 @@ var server = tcp.createServer(function(connection) {
                 connection.close();
                 return;
             }
-
+            
+            sys.puts("Calling handleData");
+            sys.puts(data);
              _resource.handleData(connection, data.substr(1, data.length - 2));
         }
     });
