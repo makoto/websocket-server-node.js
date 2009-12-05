@@ -1,7 +1,6 @@
 websocket-server-node.js
 
-A minimal Web Socket server written in JavaScript using node.js. It's intended
-to be used locally.
+A Web Socket server for local use written in JavaScript, using node.js.
 
 
 1. Get node.js from nodejs.org
